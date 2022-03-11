@@ -1,4 +1,4 @@
 .idea
 jenv
-/hangman/__pycache__
-/hangman/__init__.py
+Hangman/hangman/__pycache__/
+Hangman/hangman/__init__.py
