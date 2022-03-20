@@ -1,2 +1,4 @@
 .idea
 jenv
+gameplay/__pycache*
+gameplay/migrations

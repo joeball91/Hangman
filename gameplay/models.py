@@ -21,5 +21,7 @@ class Game(models.Model):
     )
     answer = models.CharField(max_length=20)
     guess = models.CharField(max_length=1)
+    letters = models.CharField(max_length=100, default="")
+    letters_guessed = models.CharField(max_length=20, default="")
     hangman_body = models.ImageField()
     is_game_over = models.BooleanField(default=False)
