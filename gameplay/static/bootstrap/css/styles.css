@@ -1,5 +1,5 @@
 body{
-    background-color: #041712;    
+    background-color: black;    
 }
 
 h1{
@@ -7,7 +7,7 @@ h1{
     font-size: 80px;
     text-align: justify;
     padding-left: 21%;
-    color: gold;
+    color:white;
     height: 1px;
     font-family: cursive;
     font-style: italic;
