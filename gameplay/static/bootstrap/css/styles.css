@@ -6,10 +6,23 @@ h1{
     padding-top: 1%;
     font-size: 80px;
     text-align: justify;
-    padding-left: 20%;
+    padding-left: 21%;
     color: gold;
     height: 1px;
     font-family: cursive;
     font-style: italic;
     
+}
+
+.keyboard{
+    padding-top: 30%;
+    padding-left: 35%;
+}
+
+.keyboard-row2{
+    padding-left: 5%;
+}
+
+.keyboard-row3{
+    padding-left: 10%;
 }
