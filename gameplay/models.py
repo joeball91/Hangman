@@ -7,11 +7,11 @@ class Game(models.Model):
 
     ANIMALS = 'ANIMALS'
     CITIES = 'CITIES'
-    MOVIES = 'MOVIES'
+    FAMOUS = 'FAMOUS'
     CATEGORY_CHOICES = [
         (ANIMALS, 'Animals'),
         (CITIES, 'Cities'),
-        (MOVIES, 'Movies'),
+        (FAMOUS, 'Famous'),
     ]
 
     category = models.CharField(
