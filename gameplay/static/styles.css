@@ -1,0 +1,39 @@
+body{
+    background-color: black;    
+}
+
+h1{
+    padding-top: 1%;
+    font-size: 80px;
+    text-align: justify;
+    padding-left: 36%;
+    color:white;
+    font-family: cursive;
+    font-style: italic;
+    
+}
+
+.keyboard{
+    padding-top: 3%;
+    padding-left: 35%;
+}
+
+.keyboard-row2{
+    padding-left: 4%;
+}
+
+.keyboard-row3{
+    padding-left: 9%;
+}
+
+.category-box{
+    margin-left: 31%;
+    margin-top: 8%;
+    height: 130px;
+    width: 460px;
+    border: dashed 2px;
+    border-color: white;
+    font-size: 40px;
+    text-align: center;
+    color: bisque;
+}
