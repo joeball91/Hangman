@@ -1,12 +1,25 @@
-function alertButton() {
-    alert('Clicked');
+function changeAnimalText() {
+    const category = document.getElementById("category");
+    let button = category.innerHTML = 'Animals';
 }
 
-const famous_button = document.getElementById("famous_people_btn");
-const cities_button = document.getElementById("cities_btn");
-const animals_button = document.getElementById("animals_btn");
+function changeCityText() {
+    const category = document.getElementById("category");
+    let button = category.innerHTML = 'Cities';
+}
+
+function changeFamousText() {
+    const category = document.getElementById("category");
+    let button = category.innerHTML = 'Famous People';
+}
+
+const famousButton = document.getElementById("famous_people_btn");
+const citiesButton = document.getElementById("cities_btn");
+const animalsButton = document.getElementById("animals_btn");
 
 /* Event listener */
-famous_button.addEventListener("click", alertButton);
-cities_button.addEventListener("click", alertButton);
-animals_button.addEventListener("click", alertButton);
+famousButton.addEventListener("click", changeFamousText);
+citiesButton.addEventListener("click", changeCityText);
+animalsButton.addEventListener("click", changeAnimalText);
+
+
