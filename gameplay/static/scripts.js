@@ -1,25 +1,54 @@
 function changeAnimalText() {
     const category = document.getElementById("category");
-    let button = category.innerHTML = 'Animals';
+    category.innerHTML = `'Animals'
+    <br>
+    <button class="btn btn-danger" id="refresh">Start Over?</button>`;
 }
 
 function changeCityText() {
     const category = document.getElementById("category");
-    let button = category.innerHTML = 'Cities';
+    category.innerHTML = `'Cities'
+    <br>
+    <button class="btn btn-danger" id="refresh">Start Over?</button>`;
 }
 
 function changeFamousText() {
     const category = document.getElementById("category");
-    let button = category.innerHTML = 'Famous People';
+    category.innerHTML = `'Famous People'
+    <br>
+    <button class="btn btn-danger" id="refresh">Start Over?</button>`;
 }
 
-const famousButton = document.getElementById("famous_people_btn");
-const citiesButton = document.getElementById("cities_btn");
-const animalsButton = document.getElementById("animals_btn");
+function resetGame(){
+    const cat_section = document.getElementById("category-section");
+    cat_section.innerHTML = 
+        `<div class="category-box" id="category">
+            <button class="btn btn-outline-primary" id="famous_people_btn">Famous People</button>
+            <button class="btn btn-outline-primary" id="cities_btn">Cities</button>
+            <button class="btn btn-outline-primary" id="animals_btn">Animals</button>
+            <p class="category">Choose a category</p>
+        </div>`
+}
 
-/* Event listener */
-famousButton.addEventListener("click", changeFamousText);
-citiesButton.addEventListener("click", changeCityText);
-animalsButton.addEventListener("click", changeAnimalText);
+/* Event listeners */
 
+document.addEventListener("click", function (event){
+
+    if (event.target.id === "famous_people_btn"){
+        changeFamousText();
+    }
+
+    if (event.target.id === "cities_btn"){
+        changeCityText();
+    }
+
+    if (event.target.id === "animals_btn"){
+        changeAnimalText();
+    }
+
+    if (event.target.id === "refresh"){
+        resetGame();
+    }
+
+});
 

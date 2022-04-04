@@ -4,6 +4,7 @@ body{
 
 h1{
     padding-top: 1%;
+    padding-bottom: 7%;
     font-size: 80px;
     text-align: justify;
     padding-left: 36%;
@@ -28,7 +29,7 @@ h1{
 
 .category-box{
     margin-left: 31%;
-    margin-top: 8%;
+    margin-top: 1%;
     height: 130px;
     width: 460px;
     border: dashed 2px;
@@ -37,3 +38,4 @@ h1{
     text-align: center;
     color: bisque;
 }
+
