@@ -16,8 +16,21 @@ def get_choice(request):
 
 
 def load_dict():
+    # with open("hangman/words.txt") as words:
+    #     for word in words:
+    #         dic.append(word.strip().lower())
     pass
 
 
 def generate_word():
     pass
+
+
+def start_game(request):
+    #check for category through button click
+    #load word from that category
+    #generate blanks based on length of word
+
+    #all without refreshing page
+
+    return render(request, 'index.html')
