@@ -34,7 +34,6 @@ Tucson
 Fresno	
 Sacramento	
 Kansas City
-Mesa	
 Omaha
 Colorado Springs
 Raleigh

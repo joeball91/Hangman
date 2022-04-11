@@ -1,9 +1,12 @@
 from django.shortcuts import render
+from datetime import datetime
 from gameplay.models import Game
 
 import random
 
-game_dict = []
+famous_dict = []
+animals_dict = []
+cities_dict = []
 
 
 def index(request):
@@ -11,26 +14,55 @@ def index(request):
     return render(request, 'index.html')
 
 
-def get_choice(request):
-    pass
+def load_famous_dict():
+    if len(famous_dict) == 0:
+        with open("gameplay/static/words/famous_people.txt") as words:
+            for word in words:
+                famous_dict.append(word.strip().lower())
 
 
-def load_dict():
-    # with open("hangman/words.txt") as words:
-    #     for word in words:
-    #         dic.append(word.strip().lower())
-    pass
+def load_animals_dict():
+    if len(animals_dict) == 0:
+        with open("gameplay/static/words/animals.txt") as words:
+            for word in words:
+                animals_dict.append(word.strip().lower())
 
 
-def generate_word():
-    pass
+def load_cities_dict():
+    if len(cities_dict) == 0:
+        with open("gameplay/static/words/cities.txt") as words:
+            for word in words:
+                cities_dict.append(word.strip().lower())
 
 
-def start_game(request):
-    #check for category through button click
-    #load word from that category
-    #generate blanks based on length of word
+def generate_famous_word():
+    print(random.choice(famous_dict))
 
-    #all without refreshing page
+
+def generate_animals_word():
+    print(random.choice(animals_dict))
+
+
+def generate_cities_word():
+    print(random.choice(cities_dict))
+
+
+def start_famous_game(request):
+    load_famous_dict()
+    generate_famous_word()
+
+    return render(request, 'index.html')
+
+
+def start_animals_game(request):
+    load_animals_dict()
+    generate_animals_word()
+
+    return render(request, 'index.html')
+
+
+def start_cities_game(request):
+    load_cities_dict()
+    generate_cities_word()
 
     return render(request, 'index.html')

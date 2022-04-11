@@ -17,6 +17,7 @@ donkey
 duck
 eagle
 ferret
+fish
 fox
 frog
 goat
@@ -54,7 +55,6 @@ stork
 swan
 tiger
 toad
-trout
 turkey
 turtle
 weasel

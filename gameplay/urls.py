@@ -8,5 +8,7 @@ app_name = 'gameplay'
 urlpatterns = [
     # Home Page
     path('', views.index, name='index'),
-    path('game', views.start_game, name='game')
+    path('famous/', views.start_famous_game, name='game'),
+    path('animals/', views.start_animals_game, name='game'),
+    path('cities/', views.start_cities_game, name='game'),
 ]
