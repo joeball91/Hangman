@@ -36,33 +36,39 @@ def load_cities_dict():
 
 
 def generate_famous_word():
-    print(random.choice(famous_dict))
+    return random.choice(famous_dict)
 
 
 def generate_animals_word():
-    print(random.choice(animals_dict))
+    return random.choice(animals_dict)
 
 
 def generate_cities_word():
-    print(random.choice(cities_dict))
+    return random.choice(cities_dict)
 
 
 def start_famous_game(request):
-    load_famous_dict()
-    generate_famous_word()
+    if request.method == 'GET':
+        load_famous_dict()
+        word = generate_famous_word()
+        game = Game(answer=word)
 
-    return render(request, 'index.html')
+        return render(request, 'index.html')
 
 
 def start_animals_game(request):
-    load_animals_dict()
-    generate_animals_word()
+    if request.method == 'GET':
+        load_animals_dict()
+        word = generate_animals_word()
+        game = Game(answer=word)
 
-    return render(request, 'index.html')
+        return render(request, 'index.html')
 
 
 def start_cities_game(request):
-    load_cities_dict()
-    generate_cities_word()
+    if request.method == 'GET':
+        load_cities_dict()
+        word = generate_cities_word()
+        game = Game(answer=word)
 
-    return render(request, 'index.html')
+        return render(request, 'index.html')
