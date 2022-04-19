@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from datetime import datetime
 from gameplay.models import Game
 
 import random
@@ -50,10 +49,19 @@ def generate_cities_word():
 def start_famous_game(request):
     if request.method == 'GET':
         load_famous_dict()
-        word = generate_famous_word()
-        game = Game(answer=word)
+        answer = generate_famous_word()
+        game = Game(answer=answer)
+        split_word = answer.split()
+        first_name = split_word[0]
+        last_name = split_word[1]
 
-        return render(request, 'index.html')
+        for x in range(len(first_name)):
+            game.display1 += "_ "
+
+        for x in range(len(last_name)):
+            game.display2 += "_ "
+
+        return render(request, 'index.html', {"game": game})
 
 
 def start_animals_game(request):
@@ -62,13 +70,33 @@ def start_animals_game(request):
         word = generate_animals_word()
         game = Game(answer=word)
 
-        return render(request, 'index.html')
+        for x in range(len(word)):
+            game.display1 += '_  '
+
+        return render(request, 'index.html', {"game": game})
 
 
 def start_cities_game(request):
     if request.method == 'GET':
         load_cities_dict()
-        word = generate_cities_word()
-        game = Game(answer=word)
+        answer = generate_cities_word()
+        game = Game(answer=answer)
+        city = answer.split()
 
-        return render(request, 'index.html')
+        if len(city) == 2:
+            first_part = city[0]
+            second_part = city[1]
+
+            for x in range(len(first_part)):
+                game.display1 += "_ "
+
+            for x in range(len(second_part)):
+                game.display2 += "_ "
+
+        else:
+            first_part = city[0]
+
+            for x in range(len(first_part)):
+                game.display1 += "_ "
+
+    return render(request, 'index.html', {"game": game})

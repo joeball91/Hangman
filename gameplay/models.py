@@ -25,3 +25,5 @@ class Game(models.Model):
     letters_guessed = models.CharField(max_length=20, default="")
     hangman_body = models.ImageField()
     is_game_over = models.BooleanField(default=False)
+    display1 = models.CharField(max_length=20, default="")
+    display2 = models.CharField(max_length=20, default="")
