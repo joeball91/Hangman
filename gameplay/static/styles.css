@@ -6,29 +6,39 @@ h1{
     padding-top: 1%;
     padding-bottom: 7%;
     font-size: 80px;
-    text-align: justify;
-    padding-left: 36%;
+    text-align: center;
+    /*padding-left: 36%;*/
     color:white;
     font-family: cursive;
     font-style: italic;
     
 }
 
+h2{
+    font-size: 70px;
+    text-align: center;
+    padding-top: 10%;
+    color: white;
+}
+
 .keyboard{
     padding-top: 3%;
-    padding-left: 35%;
+    /*padding-left: 35%;*/
+    text-align: center;
 }
 
 .keyboard-row2{
-    padding-left: 4%;
+    /*padding-left: 4%;*/
+    text-align: center;
 }
 
 .keyboard-row3{
-    padding-left: 9%;
+    /*padding-left: 9%;*/
+    text-align: center;
 }
 
 .category-box{
-    margin-left: 31%;
+    margin-left: 24%;
     margin-top: 1%;
     height: 130px;
     width: 460px;
