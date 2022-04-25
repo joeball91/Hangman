@@ -30,6 +30,31 @@ function resetGame(){
         </div>`
 }
 
+function myFirstAjax(){
+    console.log("It's working!")
+
+
+
+    // $.ajax({
+    //     url : "127"
+    //     type : "POST", // http method
+    //     data : {
+    //       name:"name",
+    //       csrfmiddlewaretoken: '{{ csrf_token }}' , //This is must for security in Django
+    //     }, // data sent with the post request
+    //
+    //     // handle a successful response
+    //     success : function(response){
+    //       alert(response["name"]);
+    //     },
+    //
+    //     // // handle a non-successful response
+    //     // error : function() {
+    //     // .....
+    //     }
+    // });
+}
+
 /* Event listeners */
 
 document.addEventListener("click", function (event){
