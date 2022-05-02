@@ -67,9 +67,9 @@ document.addEventListener("click", function (event){
         changeCityText();
     }
 
-    if (event.target.id === "animals_btn"){
-        changeAnimalText();
-    }
+    // if (event.target.id === "animals_btn"){
+    //     changeAnimalText();
+    // }
 
     if (event.target.id === "refresh"){
         resetGame();

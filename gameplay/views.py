@@ -54,7 +54,7 @@ def start_famous_game(request):
         load_famous_dict()
         answer = generate_famous_word()
         game = Game(answer=answer)
-        game.category = 'FAMOUS'
+        game.category = 'Famous'
         split_word = answer.split()
         first_name = split_word[0]
         last_name = split_word[1]
@@ -73,7 +73,7 @@ def start_animals_game(request):
         load_animals_dict()
         word = generate_animals_word()
         game = Game(answer=word)
-        game.category = 'ANIMALS'
+        game.category = 'Animals'
 
         for x in range(len(word)):
             game.display1 += '_  '
@@ -82,13 +82,13 @@ def start_animals_game(request):
 
 
 def start_cities_game(request):
-    serializer = GameSerializer
+    # serializer = GameSerializer
     if request.method == 'GET':
         load_cities_dict()
         answer = generate_cities_word()
-        game = Game.objects.all()
-        # game = Game(answer=answer)
-        game.category = 'CITIES'
+        # game = Game.objects.all()
+        game = Game(answer=answer)
+        game.category = 'Cities'
         city = answer.split()
 
         if len(city) == 2:
@@ -107,8 +107,8 @@ def start_cities_game(request):
             for x in range(len(first_part)):
                 game.display1 += "_ "
 
-    return JsonResponse({"game": game})
-    # return render(request, 'index.html', {"game": game})
+    # return HttpResponse({"game": game})
+    return render(request, 'index.html', {"game": game})
 
 # def ajax_test_view(request):
 #     return JsonResponse

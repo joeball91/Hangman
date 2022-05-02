@@ -28,14 +28,41 @@
         <div class="row">
             <div class="col-lg-7">
                 <h1>Hangman</h1>
-                <section id="category-section">
+
+                {% if game.category  %}
+
+                    <div class="category-box" id="category">
+
+                        {% if game.category == 'Animals' %}
+
+                            Animals <br>
+                            <button class="btn btn-danger" id="refresh">Start Over?</button>
+
+                        {% elif game.category == 'Famous' %}
+
+                            Famous People <br>
+                            <button class="btn btn-danger" id="refresh">Start Over?</button>
+
+                        {% elif game.category == 'Cities' %}
+
+                            Cities <br>
+                            <button class="btn btn-danger" id="refresh">Start Over?</button>
+
+                        {% endif %}
+
+                    </div>
+
+                {% else %}
+
                     <div class="category-box" id="category">
                         <a class="btn btn-outline-primary" id="famous_people_btn" href="famous">Famous People</a>
                         <a class="btn btn-outline-primary" id="cities_btn" href="cities">Cities</a>
                         <a class="btn btn-outline-primary" id="animals_btn" href="animals"> Animals</a>
                         <p class="category">Choose a category</p>
                     </div>
-                </section>
+
+                {% endif %}
+
                 <div class="keyboard">
                     <div>
                         <button class="btn btn-primary">q</button>
