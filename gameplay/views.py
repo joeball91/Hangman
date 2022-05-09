@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from gameplay.models import Game
+from django.views.decorators.csrf import csrf_protect
 from rest_framework.response import Response
 from .serializers import GameSerializer
 
@@ -49,6 +50,12 @@ def generate_cities_word():
     return random.choice(cities_dict)
 
 
+def start_game(request):
+    if request.method == 'GET':
+        pass
+
+
+@csrf_protect
 def start_famous_game(request):
     if request.method == 'GET':
         load_famous_dict()
@@ -66,6 +73,8 @@ def start_famous_game(request):
             game.display2 += "_ "
 
         return render(request, 'index.html', {"game": game})
+    else:
+        return button
 
 
 def start_animals_game(request):

@@ -30,11 +30,38 @@ function resetGame(){
         </div>`
 }
 
-function myFirstAjax(){
-    console.log("It's working!")
+async function myFirstAjax() {
+//     try {
+//         const response = await fetch('http://127.0.0.1:8000/famous/', {
+//           method: 'POST',
+//           body: {
+//             // Your body
+//           }
+//         });
+//         console.log('Completed!', response);
+//     catch(err) {
+//         console.error(`Error: ${err}`);
+//     }
+//     }
+// }
 
 
+    const button = document.getElementById('guess');
 
+    button.addEventListener('click', async _ => {
+        try {
+            const response = await fetch('http://127.0.0.1:8000/famous/', {
+                method: 'POST',
+                body: {
+                    // Your body
+                }
+            });
+            console.log('Completed!', response);
+        } catch (err) {
+            console.error(`Error: ${err}`);
+        }
+    });
+}
     // $.ajax({
     //     url : "127"
     //     type : "POST", // http method
@@ -53,9 +80,7 @@ function myFirstAjax(){
     //     // .....
     //     }
     // });
-}
-
-/* Event listeners */
+// }
 
 document.addEventListener("click", function (event){
 
@@ -67,9 +92,9 @@ document.addEventListener("click", function (event){
         changeCityText();
     }
 
-    // if (event.target.id === "animals_btn"){
-    //     changeAnimalText();
-    // }
+    if (event.target.id === "animals_btn"){
+        changeAnimalText();
+    }
 
     if (event.target.id === "refresh"){
         resetGame();

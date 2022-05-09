@@ -3,11 +3,9 @@ body{
 }
 
 h1{
-    padding-top: 5%;
     padding-bottom: 7%;
     font-size: 80px;
     text-align: center;
-    /*padding-left: 36%;*/
     color:white;
     font-family: cursive;
     font-style: italic;
@@ -38,8 +36,7 @@ h2{
 }
 
 .category-box{
-    margin-left: 24%;
-    margin-top: 1%;
+    margin: auto;
     height: 130px;
     width: 460px;
     border: 2px dashed white;
