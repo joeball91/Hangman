@@ -1,23 +1,23 @@
-function changeAnimalText() {
-    const category = document.getElementById("category");
-    category.innerHTML = `Animals
-    <br>
-    <button class="btn btn-danger" id="refresh">Start Over?</button>`;
-}
-
-function changeCityText() {
-    const category = document.getElementById("category");
-    category.innerHTML = `Cities
-    <br>
-    <button class="btn btn-danger" id="refresh">Start Over?</button>`;
-}
-
-function changeFamousText() {
-    const category = document.getElementById("category");
-    category.innerHTML = `Famous People
-    <br>
-    <button class="btn btn-danger" id="refresh">Start Over?</button>`;
-}
+// function changeAnimalText() {
+//     const category = document.getElementById("category");
+//     category.innerHTML = `Animals
+//     <br>
+//     <button class="btn btn-danger" id="refresh">Start Over?</button>`;
+// }
+//
+// function changeCityText() {
+//     const category = document.getElementById("category");
+//     category.innerHTML = `Cities
+//     <br>
+//     <button class="btn btn-danger" id="refresh">Start Over?</button>`;
+// }
+//
+// function changeFamousText() {
+//     const category = document.getElementById("category");
+//     category.innerHTML = `Famous People
+//     <br>
+//     <button class="btn btn-danger" id="refresh">Start Over?</button>`;
+// }
 
 function resetGame(){
     const cat_section = document.getElementById("category-section");

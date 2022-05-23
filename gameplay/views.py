@@ -13,7 +13,7 @@ cities_dict = []
 
 
 def index(request):
-    # Home page for Hangman
+    # Start page for Hangman
     return render(request, 'index.html')
 
 
@@ -61,20 +61,31 @@ def start_famous_game(request):
         load_famous_dict()
         answer = generate_famous_word()
         game = Game(answer=answer)
+        game.answer = answer
+        game.hangman_body = "../static/images/hangman1.png"
         game.category = 'Famous'
         split_word = answer.split()
+
         first_name = split_word[0]
         last_name = split_word[1]
 
+        game.display1 = list(range(len(first_name)))
         for x in range(len(first_name)):
-            game.display1 += "_ "
+            game.display1[x] = "_ "
+        game.display1 = "".join(game.display1)
 
+        game.display2 = list(range(len(last_name)))
         for x in range(len(last_name)):
-            game.display2 += "_ "
+            game.display2[x] = "_ "
+        game.display2 = "".join(game.display2)
+
+        game.save()
 
         return render(request, 'index.html', {"game": game})
+
     else:
-        return button
+
+        return evaluate_guess(request)
 
 
 def start_animals_game(request):
@@ -82,12 +93,20 @@ def start_animals_game(request):
         load_animals_dict()
         word = generate_animals_word()
         game = Game(answer=word)
+        game.answer = word
+        game.hangman_body = "../static/images/hangman1.png"
         game.category = 'Animals'
 
         for x in range(len(word)):
             game.display1 += '_  '
 
+        game.save()
+
         return render(request, 'index.html', {"game": game})
+
+    else:
+
+        return evaluate_guess(request)
 
 
 def start_cities_game(request):
@@ -95,28 +114,129 @@ def start_cities_game(request):
     if request.method == 'GET':
         load_cities_dict()
         answer = generate_cities_word()
-        # game = Game.objects.all()
         game = Game(answer=answer)
+        game.answer = answer
+        game.hangman_body = "../static/images/hangman1.png"
         game.category = 'Cities'
-        city = answer.split()
+        word = answer.split()
 
-        if len(city) == 2:
-            first_part = city[0]
-            second_part = city[1]
+        if len(word) == 2:
+            first_part = word[0]
+            second_part = word[1]
 
+            game.display1 = list(range(len(first_part)))
             for x in range(len(first_part)):
-                game.display1 += "_ "
+                game.display1[x] = "_ "
+            game.display1 = "".join(game.display1)
 
+            game.display2 = list(range(len(second_part)))
             for x in range(len(second_part)):
-                game.display2 += "_ "
+                game.display2[x] = "_ "
+            game.display2 = "".join(game.display2)
 
         else:
-            first_part = city[0]
+            first_part = word[0]
 
+            game.display1 = list(range(len(first_part)))
             for x in range(len(first_part)):
-                game.display1 += "_ "
+                game.display1[x] = "_ "
+            game.display1 = "".join(game.display1)
 
-    # return HttpResponse({"game": game})
+        game.save()
+
+        return render(request, 'index.html', {"game": game})
+
+    else:
+
+        return evaluate_guess(request)
+
+
+def evaluate_guess(request):
+    count = 0
+    missed_guess = True
+    already_guessed = False
+    game_id = int(request.POST['game_id'])
+    letter_guess = request.POST['letter']
+
+    game = Game.objects.get(game_id=game_id)
+    game.guess = letter_guess
+    answer = game.answer.split()
+    guessed = list(game.letters_guessed)
+
+    if letter_guess in game.letters_guessed:
+        already_guessed = True
+    else:
+        guessed.append(letter_guess)
+        game.letters_guessed = "".join(guessed)
+        game.save()
+    word1 = ""
+    word2 = ""
+
+    if len(answer) == 2:
+
+        match_num = 0
+        for char in answer[0]:
+            if char in guessed:
+                match_num += 1
+                word1 += char
+            else:
+                count += 1
+                word1 += '_ '
+        game.display1 = word1
+
+        for char in answer[1]:
+            if char in guessed:
+                match_num += 1
+                word2 += char
+            else:
+                count += 1
+                word2 += '_ '
+        game.display2 = word2
+
+    else:
+        match_num = 0
+        for char in answer[0]:
+            if char in guessed:
+                match_num += 1
+                word1 += char
+            else:
+                count += 1
+                word1 += '_ '
+        game.display1 = word1
+
+    if count == 0:
+        game.status = 'win'
+        game.hangman_body = "../static/images/hangmanwin.png"
+
+    if len(answer) == 2:
+
+        for char in answer[0]:
+            if letter_guess is char:
+                missed_guess = False
+
+        for char in answer[1]:
+            if letter_guess is char:
+                missed_guess = False
+
+    else:
+        for char in answer[0]:
+            if letter_guess is char:
+                missed_guess = False
+
+    if missed_guess:
+        if already_guessed:
+            game.count = game.count
+            game.hangman_body = game.hangman_body
+            game.save()
+        else:
+            game.count += 1
+            game.hangman_body = "../static/images/hangman" + str(game.count) + ".png"
+            game.save()
+
+        if game.count == 8:
+            game.status = 'lose'
+            game.save()
+
     return render(request, 'index.html', {"game": game})
 
 # def ajax_test_view(request):

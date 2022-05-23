@@ -31,23 +31,67 @@
                 <h1>Hangman</h1>
 
                 {% if game.category  %}
+                    <input type="hidden" name="game_id" value="{{ game.game_id }}"/>
 
                     <div class="category-box" id="category">
 
                         {% if game.category == 'Animals' %}
 
-                            Animals <br>
-                            <a class="btn btn-danger" href="/">Start Over?</a>
+                            {% if game.status == 'win' %}
+
+                                Good job! <br>
+                                <a class="btn btn-danger" href="/">Play Again?</a>
+
+                            {%  elif game.status == 'lose' %}
+
+                                {{ game.answer }} <br>
+                                <a class="btn btn-danger" href="/">Play Again?</a>
+
+                            {%  else %}
+
+                                Animals <br>
+                                <a class="btn btn-danger" href="/">Start Over?</a>
+
+                            {% endif %}
+
 
                         {% elif game.category == 'Famous' %}
 
-                            Famous People <br>
-                            <a class="btn btn-danger" href="/">Start Over?</a>
+                            {% if game.status == 'win' %}
+
+                                Good job! <br>
+                                <a class="btn btn-danger" href="/">Play Again?</a>
+
+                            {%  elif game.status == 'lose' %}
+
+                                {{ game.answer }} <br>
+                                <a class="btn btn-danger" href="/">Play Again?</a>
+
+                            {%  else %}
+
+                                Famous People <br>
+                                <a class="btn btn-danger" href="/">Start Over?</a>
+
+                            {% endif %}
 
                         {% elif game.category == 'Cities' %}
 
-                            Cities <br>
-                            <a class="btn btn-danger" href="/">Start Over?</a>
+                            {% if game.status == 'win' %}
+
+                                Good job! <br>
+                                <a class="btn btn-danger" href="/">Play Again?</a>
+
+                            {%  elif game.status == 'lose' %}
+
+                                {{ game.answer }} <br>
+                                <a class="btn btn-danger" href="/">Play Again?</a>
+
+                            {%  else %}
+
+                                Cities <br>
+                                <a class="btn btn-danger" href="/">Start Over?</a>
+
+                            {% endif %}
 
                         {% endif %}
 
@@ -66,39 +110,40 @@
 
                 <div class="keyboard">
                     <form method="post"> {% csrf_token %}
+                        <input type="hidden" name="game_id" value="{{ game.game_id }}"/>
                         <div>
-                            <button class="btn btn-primary" id ="guess" value="q">q</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="w">w</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="e">e</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="r">r</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="t">t</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="y">y</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="u">u</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="i">i</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="o">o</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="p">p</button>
+                            <button class="btn btn-primary" name="letter" value="q">q</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="w">w</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="e">e</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="r">r</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="t">t</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="y">y</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="u">u</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="i">i</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="o">o</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="p">p</button>
                         </div>
                         <br>
                         <div class="keyboard-row2">
-                            <button class="btn btn-primary" id ="guess" type="submit" value="a">a</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="s">s</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="d">d</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="f">f</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="g">g</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="h">h</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="j">j</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="k">k</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="l">l</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="a">a</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="s">s</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="d">d</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="f">f</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="g">g</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="h">h</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="j">j</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="k">k</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="l">l</button>
                         </div>
                         <br>
                         <div class="keyboard-row3">
-                            <button class="btn btn-primary" id ="guess" type="submit" value="z">z</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="x">x</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="c">c</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="v">v</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="b">b</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="n">n</button>
-                            <button class="btn btn-primary" id ="guess" type="submit" value="m">m</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="z">z</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="x">x</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="c">c</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="v">v</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="b">b</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="n">n</button>
+                            <button class="btn btn-primary" name="letter" type="submit" value="m">m</button>
                         </div>
                         <br>
                     </form>
@@ -110,11 +155,19 @@
 
             </div>
             <div class="col-lg-3">
-                <img src="../static/images/hangman1.png">
+                {% if game.hangman_body  %} 
+                    
+                    <img src="{{ game.hangman_body }}">
+                    
+                {% else %}
+                    
+                    <img src="../static/images/hangman1.png">
+                    
+                {% endif %}
             </div>
         </div>
     </div>
 
-    <script src="../static/scripts.js"></script>
+{#    <script src="../static/scripts.js"></script>#}
 </body>
 </html>
