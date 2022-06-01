@@ -112,38 +112,217 @@
                     <form method="post"> {% csrf_token %}
                         <input type="hidden" name="game_id" value="{{ game.game_id }}"/>
                         <div>
-                            <button class="btn btn-primary" name="letter" value="q">q</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="w">w</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="e">e</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="r">r</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="t">t</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="y">y</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="u">u</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="i">i</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="o">o</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="p">p</button>
+                            {% if "q" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="q">q</button>
+                            {% elif "q" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="q">q</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="q">q</button>
+                            {% endif %}
+
+                            {% if "w" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="w">w</button>
+                            {% elif "w" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="w">w</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="w">w</button>
+                            {% endif %}
+
+                            {% if "e" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="e">e</button>
+                            {% elif "e" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="e">e</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="e">e</button>
+                            {% endif %}
+
+                            {% if "r" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="r">r</button>
+                            {% elif "r" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="r">r</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="r">r</button>
+                            {% endif %}
+
+                            {% if "t" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="t">t</button>
+                            {% elif "t" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="t">t</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="t">t</button>
+                            {% endif %}
+
+                            {% if "y" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="y">y</button>
+                            {% elif "y" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="y">y</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="y">y</button>
+                            {% endif %}
+
+                            {% if "u" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="u">u</button>
+                            {% elif "u" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="u">u</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="u">u</button>
+                            {% endif %}
+
+                            {% if "i" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="i">i</button>
+                            {% elif "i" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="i">i</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="i">i</button>
+                            {% endif %}
+
+                            {% if "o" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="o">o</button>
+                            {% elif "o" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="o">o</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="o">o</button>
+                            {% endif %}
+
+                            {% if "p" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="p">p</button>
+                            {% elif "p" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="p">p</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="p">p</button>
+                            {% endif %}>
                         </div>
                         <br>
                         <div class="keyboard-row2">
-                            <button class="btn btn-primary" name="letter" type="submit" value="a">a</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="s">s</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="d">d</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="f">f</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="g">g</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="h">h</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="j">j</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="k">k</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="l">l</button>
+                            {% if "a" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="a">a</button>
+                            {% elif "a" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="a">a</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="a">a</button>
+                            {% endif %}
+
+                            {% if "s" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="s">s</button>
+                            {% elif "s" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="s">s</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="s">s</button>
+                            {% endif %}
+
+                            {% if "d" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="d">d</button>
+                            {% elif "d" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="d">d</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="d">d</button>
+                            {% endif %}
+
+                            {% if "f" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="f">f</button>
+                            {% elif "f" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="f">f</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="f">f</button>
+                            {% endif %}
+
+                            {% if "g" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="g">g</button>
+                            {% elif "g" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="g">g</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="g">g</button>
+                            {% endif %}
+
+                            {% if "h" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="h">h</button>
+                            {% elif "h" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="h">h</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="h">h</button>
+                            {% endif %}
+
+                            {% if "j" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="j">j</button>
+                            {% elif "j" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="j">j</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="j">j</button>
+                            {% endif %}
+
+                            {% if "k" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="k">k</button>
+                            {% elif "k" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="k">k</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="k">k</button>
+                            {% endif %}
+
+                            {% if "l" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="l">l</button>
+                            {% elif "l" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="l">l</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="l">l</button>
+                            {% endif %}
                         </div>
                         <br>
                         <div class="keyboard-row3">
-                            <button class="btn btn-primary" name="letter" type="submit" value="z">z</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="x">x</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="c">c</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="v">v</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="b">b</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="n">n</button>
-                            <button class="btn btn-primary" name="letter" type="submit" value="m">m</button>
+                            {% if "z" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="z">z</button>
+                            {% elif "z" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="z">z</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="z">z</button>
+                            {% endif %}
+
+                            {% if "x" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="x">x</button>
+                            {% elif "x" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="x">x</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="x">x</button>
+                            {% endif %}
+
+                            {% if "c" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="c">c</button>
+                            {% elif "c" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="c">c</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="c">c</button>
+                            {% endif %}
+
+                            {% if "v" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="v">v</button>
+                            {% elif "v" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="v">v</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="v">v</button>
+                            {% endif %}
+
+                            {% if "b" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="b">b</button>
+                            {% elif "b" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="b">b</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="b">b</button>
+                            {% endif %}
+
+                            {% if "n" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="n">n</button>
+                            {% elif "n" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="n">n</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="n">n</button>
+                            {% endif %}
+
+                            {% if "m" in game.wrong_guesses %}
+                                <button class="btn btn-danger" name="letter" value="m">m</button>
+                            {% elif "m" in game.correct_guesses %}
+                                <button class="btn btn-success" name="letter" value="m">m</button>
+                            {% else %}
+                                <button class="btn btn-primary" name="letter" value="m">m</button>
+                            {% endif %}
                         </div>
                         <br>
                     </form>

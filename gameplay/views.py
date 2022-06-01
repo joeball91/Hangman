@@ -151,6 +151,10 @@ def start_cities_game(request):
         return evaluate_guess(request)
 
 
+def end_game(game):
+    pass
+
+
 def evaluate_guess(request):
     count = 0
     missed_guess = True
@@ -159,13 +163,22 @@ def evaluate_guess(request):
     letter_guess = request.POST['letter']
 
     game = Game.objects.get(game_id=game_id)
-    game.guess = letter_guess
     answer = game.answer.split()
     guessed = list(game.letters_guessed)
+    correct = list(game.correct_guesses)
+    wrong = list(game.wrong_guesses)
 
     if letter_guess in game.letters_guessed:
         already_guessed = True
     else:
+        if letter_guess in game.answer:
+            correct.append(letter_guess)
+            game.correct_guesses = "".join(correct)
+            game.save()
+        else:
+            wrong.append(letter_guess)
+            game.wrong_guesses = "".join(wrong)
+            game.save()
         guessed.append(letter_guess)
         game.letters_guessed = "".join(guessed)
         game.save()
@@ -174,10 +187,8 @@ def evaluate_guess(request):
 
     if len(answer) == 2:
 
-        match_num = 0
         for char in answer[0]:
             if char in guessed:
-                match_num += 1
                 word1 += char
             else:
                 count += 1
@@ -186,7 +197,6 @@ def evaluate_guess(request):
 
         for char in answer[1]:
             if char in guessed:
-                match_num += 1
                 word2 += char
             else:
                 count += 1
@@ -194,10 +204,8 @@ def evaluate_guess(request):
         game.display2 = word2
 
     else:
-        match_num = 0
         for char in answer[0]:
             if char in guessed:
-                match_num += 1
                 word1 += char
             else:
                 count += 1
@@ -207,6 +215,7 @@ def evaluate_guess(request):
     if count == 0:
         game.status = 'win'
         game.hangman_body = "../static/images/hangmanwin.png"
+        game.save()
 
     if len(answer) == 2:
 
