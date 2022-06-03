@@ -1,1 +1,1 @@
-web: waitress-serve --port=8000 hangman.wsgi:hangman
+web: waitress-serve --port=8000 hangman.wsgi:application
