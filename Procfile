@@ -1,1 +1,1 @@
-web: gunicorn gameplay:app
+web: gunicorn hangman.wsgi
