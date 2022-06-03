@@ -1,1 +1,1 @@
-web: gunicorn hangman.wsgi
+web: django hangman.wsgi
