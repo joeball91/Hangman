@@ -12,11 +12,13 @@ animals_dict = []
 cities_dict = []
 
 
+@csrf_protect
 def index(request):
     # Start page for Hangman
     return render(request, 'index.html')
 
 
+@csrf_protect
 def load_famous_dict():
     if len(famous_dict) == 0:
         with open("gameplay/static/words/famous_people.txt") as words:
@@ -24,6 +26,7 @@ def load_famous_dict():
                 famous_dict.append(word.strip().lower())
 
 
+@csrf_protect
 def load_animals_dict():
     if len(animals_dict) == 0:
         with open("gameplay/static/words/animals.txt") as words:
@@ -31,6 +34,7 @@ def load_animals_dict():
                 animals_dict.append(word.strip().lower())
 
 
+@csrf_protect
 def load_cities_dict():
     if len(cities_dict) == 0:
         with open("gameplay/static/words/cities.txt") as words:
@@ -38,21 +42,19 @@ def load_cities_dict():
                 cities_dict.append(word.strip().lower())
 
 
+@csrf_protect
 def generate_famous_word():
     return random.choice(famous_dict)
 
 
+@csrf_protect
 def generate_animals_word():
     return random.choice(animals_dict)
 
 
+@csrf_protect
 def generate_cities_word():
     return random.choice(cities_dict)
-
-
-def start_game(request):
-    if request.method == 'GET':
-        pass
 
 
 @csrf_protect
