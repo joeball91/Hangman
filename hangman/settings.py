@@ -30,6 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'default_value')
 DEBUG = True
 
 ALLOWED_HOSTS = ['django-hangman.herokuapp.com', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://django-hangman.herokuapp.com', 'https://127.0.0.1']
 
 
 # Application definition
