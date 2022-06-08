@@ -20,21 +20,21 @@ def index(request):
 
 def load_famous_dict():
     if len(famous_dict) == 0:
-        with open("gameplay/static/words/famous_people.txt") as words:
+        with open("static/words/famous_people.txt") as words:
             for word in words:
                 famous_dict.append(word.strip().lower())
 
 
 def load_animals_dict():
     if len(animals_dict) == 0:
-        with open("gameplay/static/words/animals.txt") as words:
+        with open("static/words/animals.txt") as words:
             for word in words:
                 animals_dict.append(word.strip().lower())
 
 
 def load_cities_dict():
     if len(cities_dict) == 0:
-        with open("gameplay/static/words/cities.txt") as words:
+        with open("static/words/cities.txt") as words:
             for word in words:
                 cities_dict.append(word.strip().lower())
 
@@ -57,7 +57,7 @@ def start_famous_game(request):
         answer = generate_famous_word()
         game = Game(answer=answer)
         game.answer = answer
-        game.hangman_body = "../static/images/hangman1.png"
+        game.hangman_body = "static/images/hangman1.png"
         game.category = 'Famous'
         split_word = answer.split()
 
