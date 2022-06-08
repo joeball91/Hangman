@@ -1,1 +1,0 @@
-# django_key = 'django-insecure-&8zbkh&60*fv==(e1x)c1qpeqw3x&rf65s+@@mvh!32^14m%e!z'
