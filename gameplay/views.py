@@ -88,6 +88,7 @@ def start_famous_game(request):
         return evaluate_guess(request)
 
 
+@csrf_protect
 def start_animals_game(request):
     if request.method == 'GET':
         load_animals_dict()
@@ -109,6 +110,7 @@ def start_animals_game(request):
         return evaluate_guess(request)
 
 
+@csrf_protect
 def start_cities_game(request):
     # serializer = GameSerializer
     if request.method == 'GET':
@@ -151,10 +153,7 @@ def start_cities_game(request):
         return evaluate_guess(request)
 
 
-def end_game(game):
-    pass
-
-
+@csrf_protect
 def evaluate_guess(request):
     count = 0
     missed_guess = True
