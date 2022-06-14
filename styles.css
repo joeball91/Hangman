@@ -1,0 +1,45 @@
+body{
+    background-color: black;
+}
+
+h1{
+    padding-bottom: 7%;
+    font-size: 80px;
+    text-align: center;
+    color:white;
+    font-family: cursive;
+    font-style: italic;
+}
+
+h2{
+    font-size: 70px;
+    text-align: center;
+    padding-top: 5%;
+    color: white;
+}
+
+.keyboard{
+    padding-top: 3%;
+    /*padding-left: 35%;*/
+    text-align: center;
+}
+
+.keyboard-row2{
+    /*padding-left: 4%;*/
+    text-align: center;
+}
+
+.keyboard-row3{
+    /*padding-left: 9%;*/
+    text-align: center;
+}
+
+.category-box{
+    margin: auto;
+    height: 130px;
+    width: 460px;
+    border: 2px dashed white;
+    font-size: 40px;
+    text-align: center;
+    color: bisque;
+}
