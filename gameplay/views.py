@@ -57,7 +57,7 @@ def start_famous_game(request):
         answer = generate_famous_word()
         game = Game(answer=answer)
         game.answer = answer
-        game.hangman_body = "static/images/hangman1.png"
+        game.hangman_body = "../static/images/hangman1.png"
         game.category = 'Famous'
         split_word = answer.split()
 
