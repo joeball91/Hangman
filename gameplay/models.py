@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -18,6 +19,7 @@ class Game(models.Model):
         max_length=20,
         choices=CATEGORY_CHOICES,
     )
+    user = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
     game_id = models.AutoField(primary_key=True, default=0)
     answer = models.CharField(max_length=20)
     letters = models.CharField(max_length=100, default="")
