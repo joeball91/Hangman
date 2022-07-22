@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'default_value')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['django-hangman.herokuapp.com', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = ['https://django-hangman.herokuapp.com', 'https://127.0.0.1']

@@ -154,9 +154,10 @@ def evaluate_guess(request):
     missed_guess = True
     already_guessed = False
     game_id = int(request.POST['game_id'])
+    user_id = int(request.POST['user_id'])
     letter_guess = request.POST['letter']
 
-    game = Game.objects.get(game_id=game_id)
+    game = Game.objects.get(game_id=game_id, user_id=user_id)
     answer = game.answer.split()
     guessed = list(game.letters_guessed)
     correct = list(game.correct_guesses)
@@ -242,5 +243,10 @@ def evaluate_guess(request):
 
     return render(request, 'index.html', {"game": game})
 
+
+def register(request):
+
+    if request.method == 'GET':
+        return render(request, 'register.html')
 # def ajax_test_view(request):
 #     return JsonResponse
