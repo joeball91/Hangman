@@ -154,10 +154,9 @@ def evaluate_guess(request):
     missed_guess = True
     already_guessed = False
     game_id = int(request.POST['game_id'])
-    user_id = int(request.POST['user_id'])
     letter_guess = request.POST['letter']
 
-    game = Game.objects.get(game_id=game_id, user_id=user_id)
+    game = Game.objects.get(game_id=game_id)
     answer = game.answer.split()
     guessed = list(game.letters_guessed)
     correct = list(game.correct_guesses)
