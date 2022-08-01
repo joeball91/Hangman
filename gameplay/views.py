@@ -247,5 +247,17 @@ def register(request):
 
     if request.method == 'GET':
         return render(request, 'register.html')
+
+
+def login(request):
+
+    if request.method == 'GET':
+        return render(request, 'login.html')
+
+
+def see_leaders(request):
+
+    if request.method == 'GET':
+        return render(request, 'leaders.html')
 # def ajax_test_view(request):
 #     return JsonResponse
