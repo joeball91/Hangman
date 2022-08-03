@@ -6,3 +6,7 @@ rest_framework
 scripts.*
 staticfiles*
 admin
+styles.92d7cb45b139*
+styles.css.gz
+package-lock.json
+package.json
