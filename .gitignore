@@ -1,6 +1,5 @@
 .idea
 gameplay/__pycache*
 gameplay/migrations
-admin
 jenv
-scripts*
+rest_framework
