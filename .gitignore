@@ -6,4 +6,3 @@ rest_framework
 scripts.*
 staticfiles*
 admin
-static
