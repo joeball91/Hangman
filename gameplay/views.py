@@ -14,7 +14,7 @@ cities_dict = []
 
 @csrf_protect
 def index(request):
-    # Start page for Hangman
+    # Start page for hangman
     return render(request, 'index.html')
 
 

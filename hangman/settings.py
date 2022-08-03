@@ -125,7 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_ROOT = "C:/Users/joewi/Programming/Hangman"
+STATIC_ROOT = "C:/Users/joewi/Programming/hangman"
 STATIC_URL = 'static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = (
