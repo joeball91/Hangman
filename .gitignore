@@ -1,5 +1,4 @@
 .idea
 gameplay/__pycache*
 gameplay/migrations
-jenv
 rest_framework
