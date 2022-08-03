@@ -2,3 +2,4 @@
 gameplay/__pycache*
 gameplay/migrations
 node_modules
+rest_framework
