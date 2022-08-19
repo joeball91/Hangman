@@ -3,9 +3,12 @@ gameplay/__pycache*
 gameplay/migrations
 node_modules
 rest_framework
-scripts*
 staticfiles*
 admin
 styles.92d7cb45b139*
 static
 css
+scripts.js
+scripts.js.gz
+scripts.d9335e885ded.js
+scripts.d9335e885ded.js.gz
