@@ -12,3 +12,6 @@ scripts.js
 scripts.js.gz
 scripts.d9335e885ded.js
 scripts.d9335e885ded.js.gz
+/jenv/Lib/site-packages/whitenoise/
+/jenv/Lib/site-packages/sqlparse/
+/jenv/Lib/site-packages/pytz/
